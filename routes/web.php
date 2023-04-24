@@ -18,3 +18,4 @@ use App\Http\Controllers\ClientsController;
 // });
 
 Route::resource('/client' , ClientsController::class);
+Route::get('/client/view/{action}' , [ClientsController::class, 'view'])->name('view');

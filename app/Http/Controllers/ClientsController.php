@@ -63,4 +63,14 @@ class ClientsController extends Controller
     {
         //
     }
+
+    public function view($action){
+        if($action === 'add'){
+            return view('addClient');
+        }else if($action === 'edit'){
+            return view('editClient');
+        }else{
+            exit();
+        }
+    }
 }

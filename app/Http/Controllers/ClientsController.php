@@ -29,15 +29,16 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Client::create($request->all());
+        return redirect()->back()->with('message', 'New Client Added Successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Client $client)
     {
-        //
+        return view('showClient', compact('client'));
     }
 
     /**

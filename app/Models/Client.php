@@ -10,5 +10,9 @@ class Client extends Model
     use HasFactory;
 
     protected $table = 'client';
-    
+
+    protected $fillable = [
+        'first_name' , 'last_name' , 'sex' , 'contact_number' , 'address'
+    ];
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Client;
 
 class ClientsController extends Controller
 {
@@ -11,7 +12,8 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::orderBy('created_at', 'DESC')->paginate(5);
+        return view ('manageClient', compact('clients'));
     }
 
     /**

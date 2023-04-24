@@ -21,7 +21,7 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        //
+        return view('addClient');
     }
 
     /**
@@ -44,17 +44,18 @@ class ClientsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Client $client)
     {
-        //
+        return view('editClient', compact('client'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Client $client)
     {
-        //
+        $client->update($request->all());
+        return redirect()->back()->with('message', 'Client Data Edit Successfully');
     }
 
     /**
@@ -63,15 +64,5 @@ class ClientsController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function view($action){
-        if($action === 'add'){
-            return view('addClient');
-        }else if($action === 'edit'){
-            return view('editClient');
-        }else{
-            exit();
-        }
     }
 }

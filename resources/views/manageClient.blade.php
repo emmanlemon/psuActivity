@@ -1,6 +1,6 @@
 @include('header')
 <div class="container min-vh-100">
-    <h2 class="mt-4">Client: <a href="{{ route('view' , 'add') }}" class="btn btn-primary">Add Client +</a></h2>
+    <h2 class="mt-4">Client: <a href="{{ route('client.create') }}" class="btn btn-primary">Add Client +</a></h2>
     <table class="table table-striped">
         <thead>
           <tr>
@@ -27,7 +27,7 @@
                     <td>{{ $row->address }}</td>
                     <td class="d-flex flex-row gap-1 align-items-center">
                         <a href="{{ route('client.show' , $row->id) }}" class="btn btn-info text-white">Show</a>
-                        <a href="{{ route('view' , 'edit') }}" class="btn btn-success text-white">Edit</a>
+                        <a href="{{ route('client.edit' ,$row->id) }}" class="btn btn-success text-white">Edit</a>
                         <form action="">
                             <button class="btn btn-danger mt-3">Delete</button>
                         </form>

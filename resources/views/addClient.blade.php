@@ -1,7 +1,7 @@
 @include('header')
 <div class="container vh-100">
     <form action="{{ route('client.store') }}" method="post">
-        <a href="{{ route('client.index') }}" class="btn btn-primary my-2">Back</a>
+        <h2 class="mt-2">Add Client: <a href="{{ route('client.index') }}" class="btn btn-primary my-2">Back</a></h2>
         @if(session('message'))
             <div class="alert alert-success">{{ session('message') }}</div>
         @endif

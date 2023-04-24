@@ -1,8 +1,11 @@
 @include('header')
 <div class="container min-vh-100">
     <h2 class="mt-4">Client: <a href="{{ route('client.create') }}" class="btn btn-primary">Add Client +</a></h2>
+    @if(session('message'))
+    <div class="alert alert-danger">{{ session('message') }}</div>
+    @endif
     <table class="table table-striped">
-        <thead>
+        <thead style="background-color: rgb(0, 0, 95); color: white; text-transform: uppercase; letter-spacing: 1px;">
           <tr>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
@@ -27,8 +30,10 @@
                     <td>{{ $row->address }}</td>
                     <td class="d-flex flex-row gap-1 align-items-center">
                         <a href="{{ route('client.show' , $row->id) }}" class="btn btn-info text-white">Show</a>
-                        <a href="{{ route('client.edit' ,$row->id) }}" class="btn btn-success text-white">Edit</a>
-                        <form action="">
+                        <a href="{{ route('client.edit' , $row->id) }}" class="btn btn-success text-white">Edit</a>
+                        <form action="{{ route('client.destroy' , $row->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
                             <button class="btn btn-danger mt-3">Delete</button>
                         </form>
                     </td>
